@@ -30,8 +30,14 @@ function desenharPizza(){
 		['Alimentação',260]
 	]);
 
+	let opcoes = {
+		title : 'Grafico de Gastos',
+		height: 300,
+		width: 400
+	}
+
 	let grafico = new google.visualization.PieChart(graficoPizza);
-	grafico.draw(tabela)
+	grafico.draw(tabela,opcoes)
 }
 
 
