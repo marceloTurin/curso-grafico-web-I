@@ -33,9 +33,11 @@ function desenharPizza(){
 	let opcoes = {
 		title : 'Grafico de Gastos',
 		height: 300,
-		width: 400,
+		width: 800,
 		//pieHole : 0.4,
-		is3D: true
+		is3D: true,
+		legend: 'labeled',
+		pieSliceText: 'value'
 	}
 
 	let grafico = new google.visualization.PieChart(graficoPizza);
