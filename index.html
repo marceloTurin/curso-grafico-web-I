@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div id="graficoPizza"></div>
+
+
+</body>
+
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript">
+	  google.charts.load('current', {packages: ['corechart']});
+	  google.charts.setOnLoadCallback(desenharPizza);
+	 
+
+function desenharPizza(){
+	let graficoPizza = document.querySelector("#graficoPizza")
+	let tabela = new google.visualization.DataTable();
+	tabela.addColumn('string','Categoria');
+	tabela.addColumn('number','Valores');
+
+	tabela.addRows([
+		['Educação',2000],
+		['Transporte',500],
+		['Lazer',230],
+		['Saúde',50],
+		['Cartão de Crédito',900],
+		['Alimentação',260]
+	]);
+
+	let grafico = new google.visualization.PieChart(graficoPizza);
+	grafico.draw(tabela)
+}
+
+
+
+
+
+
+
+	</script>
+</html>
