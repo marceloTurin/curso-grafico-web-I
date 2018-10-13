@@ -111,8 +111,8 @@ function desenharColuna(){
 }
 
 
-function desenhaColunaSurpresa(){
-	let graficoColunaSurpresa = document.querySelector("#graficoColunaSurpresa")
+function desenhaGraficoBarras(){
+	let graficoBarras = document.querySelector("#graficoBarras")
 	let tabela = new google.visualization.DataTable();
 	tabela.addColumn('string','Categoria');
 	tabela.addColumn('number','Valores');
@@ -138,7 +138,7 @@ function desenhaColunaSurpresa(){
 		legend: 'none'
 	}
 
-	let grafico = new google.visualization.ColumnChart(graficoColunaSurpresa)
+	let grafico = new google.visualization.BarChart(graficoBarras)
 	grafico.draw(tabela,opcoes)
 }
 
@@ -146,5 +146,5 @@ function desenharGrafico(){
 	desenharPizza();
 	desenharLinha();
 	desenharColuna();
-	desenhaColunaSurpresa()
+	desenhaGraficoBarras()
 }
