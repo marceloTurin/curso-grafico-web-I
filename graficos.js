@@ -175,6 +175,19 @@ function desenhaGraficoBarras(){
 	grafico.draw(tabela,opcoes)
 }
 
+function desenharGraficoBarrasJson(){
+
+	let dadosJson = $.ajax({
+		url : 'dadosJson.json',
+		dataType: 'json',
+		async: false
+	}).responseText;
+
+	let graficoBarrasJson = document.querySelector("#graficoBarrasJson");
+	let tabela = new google.visualization.DataTable(dadosJson);
+	let grafico = google.visualization.BarChart(graficoBarrasJson);
+	grafico.draw(tabela)
+}
 
 //Funcao que desenha todos os grafico
 function desenharGrafico(){
