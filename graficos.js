@@ -110,8 +110,29 @@ function desenharColuna(){
 	grafico.draw(tabela,opcoes);	
 }
 
+
+function desenhaColunaSurpresa(){
+	let graficoColunaSurpresa = document.querySelector("#graficoColunaSurpresa")
+	let tabela = new google.visualization.DataTable();
+	tabela.addColumn('string','Categoria');
+	tabela.addColumn('number','Valores');
+
+	tabela.addRows([
+		['Educação',2000],
+		['Transporte',500],
+		['Lazer',230],
+		['Saúde',50],
+		['Cartão de Crédito',900],
+		['Alimentação',260]
+	]);
+
+	let grafico = new google.visualization.ColumnChart(graficoColunaSurpresa)
+	grafico.draw(tabela)
+}
+
 function desenharGrafico(){
 	desenharPizza();
 	desenharLinha();
-	desenharColuna()
+	desenharColuna();
+	desenhaColunaSurpresa()
 }
