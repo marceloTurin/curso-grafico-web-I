@@ -116,18 +116,29 @@ function desenhaColunaSurpresa(){
 	let tabela = new google.visualization.DataTable();
 	tabela.addColumn('string','Categoria');
 	tabela.addColumn('number','Valores');
+	tabela.addColumn({type: 'number',role: 'annotation'});
 
 	tabela.addRows([
-		['Educação',2000],
-		['Transporte',500],
-		['Lazer',230],
-		['Saúde',50],
-		['Cartão de Crédito',900],
-		['Alimentação',260]
+		['Educação',2000,2000],
+		['Transporte',500,500],
+		['Lazer',230,230],
+		['Saúde',50,50],
+		['Cartão de Crédito',900,900],
+		['Alimentação',260,260]
 	]);
 
+	let opcoes = {
+		title: 'Tipos de Gastos',
+		height: 400,
+		width: 800,
+		vAxis: {
+			gridlines:{color: 'transparent',count: 0}
+		},
+		legend: 'none'
+	}
+
 	let grafico = new google.visualization.ColumnChart(graficoColunaSurpresa)
-	grafico.draw(tabela)
+	grafico.draw(tabela,opcoes)
 }
 
 function desenharGrafico(){
