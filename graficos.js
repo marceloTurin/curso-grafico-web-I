@@ -178,7 +178,7 @@ function desenhaGraficoBarras(){
 function desenharGraficoBarrasJson(){
 
 	let dadosJson = $.ajax({
-		url : 'dadosJson.json',
+		url : 'dados.json',
 		dataType: 'json',
 		async: false
 	}).responseText;
@@ -194,5 +194,6 @@ function desenharGrafico(){
 	desenharPizza();
 	desenharLinha();
 	desenharColuna();
-	desenhaGraficoBarras()
+	desenhaGraficoBarras();
+	desenharGraficoBarrasJson()
 }
