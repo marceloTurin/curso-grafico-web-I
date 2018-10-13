@@ -1,9 +1,12 @@
 function desenharPizza(){
 	let graficoPizza = document.querySelector("#graficoPizza")
 	let tabela = new google.visualization.DataTable();
+
+	//Adiciona Colunas
 	tabela.addColumn('string','Categoria');
 	tabela.addColumn('number','Valores');
 
+	//Adiciona Linhas
 	tabela.addRows([
 		['Educação',2000],
 		['Transporte',500],
@@ -13,6 +16,7 @@ function desenharPizza(){
 		['Alimentação',260]
 	]);
 
+	//Opções de visualização
 	let opcoes = {
 		title : 'Grafico de Gastos',
 		height: 400,
@@ -31,6 +35,7 @@ function desenharPizza(){
 		}
 	}
 
+	//Desenha grafico
 	let grafico = new google.visualization.PieChart(graficoPizza);
 	grafico.draw(tabela,opcoes)
 }
@@ -38,9 +43,13 @@ function desenharPizza(){
 
 function desenharLinha(){
 	let graficoLinha = document.querySelector("#graficoLinha");
+
 	tabela = new google.visualization.DataTable();
-	tabela.addColumn('string','Mês')
-	tabela.addColumn('number','Gastos')
+	//Adiciona Coluna
+	tabela.addColumn('string','Mês');
+	tabela.addColumn('number','Gastos');
+
+	//Adiciona Linhas
 	tabela.addRows([
 		 ['jan',800]
 		,['fev',400]
@@ -56,6 +65,7 @@ function desenharLinha(){
 		,['dez',720]
 	]);
 
+	//Opções de visualização
 	let opcoes = {
 		title: 'Gastos por Mês',
 		width: 650,
@@ -68,6 +78,7 @@ function desenharLinha(){
 		legend: 'none'
 	}
 
+	//Desenha grafico
 	let grafico = new google.visualization.LineChart(graficoLinha);
 	grafico.draw(tabela,opcoes)
 	
@@ -76,6 +87,8 @@ function desenharLinha(){
 function desenharColuna(){
 
 	let graficoColuna =  document.querySelector("#graficoColuna")
+
+	//Monta a tabela com as linha e colunas
 	let tabela =  google.visualization.arrayToDataTable([	 
 		 ['Mês','Entrada','Saída']		
 		,['jan',2500,1000]
@@ -92,6 +105,7 @@ function desenharColuna(){
 		,['dez',3000,1740]
 	]);
 
+	//Opções de visualização
 	let opcoes = {
 		title: 'Entradas e saídas da conta',
 		width: 800,
@@ -106,6 +120,7 @@ function desenharColuna(){
 		}	
 	}
 
+	//Desenha grafico
 	let grafico = new google.visualization.ColumnChart(graficoColuna);
 	grafico.draw(tabela,opcoes);	
 }
@@ -114,11 +129,14 @@ function desenharColuna(){
 function desenhaGraficoBarras(){
 	let graficoBarras = document.querySelector("#graficoBarras")
 	let tabela = new google.visualization.DataTable();
+
+	//Colunas
 	tabela.addColumn('string','Categoria');
 	tabela.addColumn('number','Valores');
 	tabela.addColumn({type: 'string',role: 'annotation'});
 	tabela.addColumn({type: 'string',role: 'style'});
 
+	//Linhas
 	tabela.addRows([
 		['Educação',2000,'R$2.000,00','blue'],
 		['Transporte',500,'R$500,00','grey'],
@@ -128,28 +146,36 @@ function desenhaGraficoBarras(){
 		['Alimentação',260,'R$260','grey']
 	]);
 
+	//Ordena a tabela pela coluna de indice 1
 	tabela.sort([{column:1,desc: true}])
 
+	//Opcoes de visualização
 	let opcoes = {
 		title: 'Tipos de Gastos',
 		height: 400,
 		width: 800,
-		vAxis: {
-			gridlines:{color: 'transparent',count: 0}
-		},
 		legend: 'none',
+		vAxis: {
+			gridlines:{color: 'transparent',
+						count: 0
+					}
+		},
 		hAxis: {
 			gridlines: {color: 'transparent'},
 			format: 'currency',
 			textPosition: 'none'
 		},
-		annotations: {alwaysOutside: true}
+		annotations: {
+			alwaysOutside: true
+		}
 	}
 
+	//Desenhando Grafico
 	let grafico = new google.visualization.BarChart(graficoBarras)
 	grafico.draw(tabela,opcoes)
 }
 
+//Funcao que desenha todos os grafico
 function desenharGrafico(){
 	desenharPizza();
 	desenharLinha();
