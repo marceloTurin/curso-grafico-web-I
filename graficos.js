@@ -92,8 +92,22 @@ function desenharColuna(){
 		,['dez',3000,1740]
 	]);
 
+	let opcoes = {
+		title: 'Entradas e saídas da conta',
+		width: 800,
+		height: 400,
+		vAxis: {
+			gridlines:{color: 'transparent'},
+			format: 'currency',
+			title: 'Valores'
+			},
+		hAxis: {
+			title: 'Mês'
+		}	
+	}
+
 	let grafico = new google.visualization.ColumnChart(graficoColuna);
-	grafico.draw(tabela);	
+	grafico.draw(tabela,opcoes);	
 }
 
 function desenharGrafico(){
