@@ -135,7 +135,12 @@ function desenhaGraficoBarras(){
 		vAxis: {
 			gridlines:{color: 'transparent',count: 0}
 		},
-		legend: 'none'
+		legend: 'none',
+		hAxis: {
+			gridlines: {color: 'transparent'},
+			format: 'currency',
+			textPosition: 'none'
+		},
 	}
 
 	let grafico = new google.visualization.BarChart(graficoBarras)
