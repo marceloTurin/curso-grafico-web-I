@@ -78,7 +78,12 @@ function desenharLinha(){
 		title: 'Gastos por Mês',
 		width: 650,
 		height: 300,
-		vAxis: {format: 'currency'}
+		vAxis: {format: 'currency',
+				gridlines: {count:5, 
+							color: 'transparent'}
+							},		
+		curveType: 'function',
+		legend: 'none'
 	}
 
 	let grafico = new google.visualization.LineChart(graficoLinha);
