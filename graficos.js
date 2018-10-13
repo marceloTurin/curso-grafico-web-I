@@ -73,7 +73,31 @@ function desenharLinha(){
 	
 }
 
+function desenharColuna(){
+
+	let graficoColuna =  document.querySelector("#graficoColuna")
+	let tabela =  google.visualization.arrayToDataTable([	 
+		 ['Mês','Entrada','Saída']		
+		,['jan',2500,1000]
+		,['fev',2000,500]
+		,['mar',3000,1300]
+		,['abr',1500,1700]
+		,['mai',5000,2250]
+		,['jun',3567,3000]
+		,['jul',3452,1468]
+		,['ago',1833,5250]
+		,['set',3803,5500]
+		,['out',1800,1000]
+		,['nov',3569,1500]
+		,['dez',3000,1740]
+	]);
+
+	let grafico = new google.visualization.ColumnChart(graficoColuna);
+	grafico.draw(tabela);	
+}
+
 function desenharGrafico(){
 	desenharPizza();
 	desenharLinha();
+	desenharColuna()
 }
