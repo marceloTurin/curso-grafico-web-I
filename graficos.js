@@ -175,6 +175,7 @@ function desenhaGraficoBarras(){
 	grafico.draw(tabela,opcoes)
 }
 
+
 //Funcao que desenha todos os grafico
 function desenharGrafico(){
 	desenharPizza();
