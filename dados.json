@@ -1,0 +1,20 @@
+{
+	"cols":[
+				{
+					"id": "", 
+					"label": "Nome", 
+					"pattern": "", 
+					"type": "string"
+				}
+				{
+					"id": "", 
+					"label": "Valor", 
+					"pattern": "", 
+					"type": "number"
+				}
+		   ],
+
+	"rows":[]
+
+}
+
