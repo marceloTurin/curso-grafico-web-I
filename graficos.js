@@ -116,17 +116,19 @@ function desenhaGraficoBarras(){
 	let tabela = new google.visualization.DataTable();
 	tabela.addColumn('string','Categoria');
 	tabela.addColumn('number','Valores');
-	tabela.addColumn({type: 'number',role: 'annotation'});
+	tabela.addColumn({type: 'string',role: 'annotation'});
 	tabela.addColumn({type: 'string',role: 'style'});
 
 	tabela.addRows([
-		['Educação',2000,2000,'blue'],
-		['Transporte',500,500,'grey'],
-		['Lazer',230,230,'grey'],
-		['Saúde',50,50,'grey'],
-		['Cartão de Crédito',900,900,'#8904B1'],
-		['Alimentação',260,260,'grey']
+		['Educação',2000,'R$2.000,00','blue'],
+		['Transporte',500,'R$500,00','grey'],
+		['Lazer',230,'R$230,00','grey'],
+		['Saúde',50,'R$50,00','grey'],
+		['Cartão de Crédito',900,'R$900,00','#8904B1'],
+		['Alimentação',260,'R$260','grey']
 	]);
+
+	tabela.sort([{column:1,desc: true}])
 
 	let opcoes = {
 		title: 'Tipos de Gastos',
@@ -141,6 +143,7 @@ function desenhaGraficoBarras(){
 			format: 'currency',
 			textPosition: 'none'
 		},
+		annotations: {alwaysOutside: true}
 	}
 
 	let grafico = new google.visualization.BarChart(graficoBarras)
