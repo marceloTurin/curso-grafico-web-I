@@ -128,9 +128,16 @@ function desenharColuna(){
 
 function desenhaGraficoBarras(){
 	let graficoBarras = document.querySelector("#graficoBarras")
-	let tabela = new google.visualization.DataTable();
 
-	//Colunas
+	let dadosJson = $.ajax({
+		url:'https://gist.githubusercontent.com/marceloTurin/e484c2f6defda04cebd7629f9b19811f/raw/ef8a7e51ed795814f74a2706acb549ee7e3fcb4b/dados.json',
+		dataType: 'json',
+		async: false
+	}).responseText;
+
+	let tabela = new google.visualization.DataTable(dadosJson);
+
+	/*Colunas
 	tabela.addColumn('string','Categoria');
 	tabela.addColumn('number','Valores');
 	tabela.addColumn({type: 'string',role: 'annotation'});
@@ -144,10 +151,13 @@ function desenhaGraficoBarras(){
 		['Saúde',50,'R$50,00','grey'],
 		['Cartão de Crédito',900,'R$900,00','#8904B1'],
 		['Alimentação',260,'R$260','grey']
-	]);
+	]);*/
 
 	//Ordena a tabela pela coluna de indice 1
 	tabela.sort([{column:1,desc: true}])
+	
+	//let conversao = tabela.toJSON();
+	//console.log(conversao);
 
 	//Opcoes de visualização
 	let opcoes = {
