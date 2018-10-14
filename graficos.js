@@ -177,17 +177,39 @@ function desenhaGraficoBarras(){
 
 function desenharGraficoBarrasJson(){
 
+	let graficoBarrasJson = document.querySelector("#graficoBarrasJson");
 	let dadosJson = $.ajax({
 		url : 'dados.json',
 		dataType: 'json',
 		async: false
 	}).responseText;
 
-	let graficoBarrasJson = document.querySelector("#graficoBarrasJson");
+	//Ordena a tabela pela coluna de indice 1
+	tabela.sort([{column:1,desc: true}])
+
+
+	let opcoes = {
+		title: 'Usuários e Poupanças',
+		width: 800,
+		height: 400,
+		legend: 'none',
+		hAxis: {
+			gridlines: {
+				color: 'transparent'
+			},
+			textPosition: 'none'
+		},
+		annotations: {
+			alwaysOutside: true
+		}
+	}
+
+	
 	let tabela = new google.visualization.DataTable(dadosJson);
 	let grafico = google.visualization.BarChart(graficoBarrasJson);
-	grafico.draw(tabela)
-}
+	grafico.draw(tabela,opcoes);
+
+
 
 //Funcao que desenha todos os grafico
 function desenharGrafico(){
