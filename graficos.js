@@ -178,14 +178,18 @@ function desenhaGraficoBarras(){
 function desenharGraficoBarrasJson(){
 
 	let graficoBarrasJson = document.querySelector("#graficoBarrasJson");
+
 	let dadosJson = $.ajax({
-		url : 'dados.json',
+		//url : 'dados.json',
+		url: 'https://gist.githubusercontent.com/marceloTurin/22e3fd82ede456293ff1abe0a8bb8890/raw/053082bb5aa602fb3c20f6975717a23f635fa29d/dados.json',
 		dataType: 'json',
 		async: false
 	}).responseText;
 
+	let tabela = new google.visualization.DataTable(dadosJson);
+	
 	//Ordena a tabela pela coluna de indice 1
-	tabela.sort([{column:1,desc: true}])
+	tabela.sort([{column:1,desc: true}]);
 
 
 	let opcoes = {
@@ -204,11 +208,9 @@ function desenharGraficoBarrasJson(){
 		}
 	}
 
-	
-	let tabela = new google.visualization.DataTable(dadosJson);
-	let grafico = google.visualization.BarChart(graficoBarrasJson);
+	let grafico = new google.visualization.BarChart(graficoBarrasJson);
 	grafico.draw(tabela,opcoes);
-
+}
 
 
 //Funcao que desenha todos os grafico
@@ -217,5 +219,5 @@ function desenharGrafico(){
 	desenharLinha();
 	desenharColuna();
 	desenhaGraficoBarras();
-	desenharGraficoBarrasJson()
+	desenharGraficoBarrasJson();
 }
